@@ -8,10 +8,10 @@ function App() {
     const dispatch = useAppDispatch()
     const appData = useAppSelector((state) => state.appData)
 
-
     useEffect(() => {
+        console.log(appData)
         dispatch(getDataTC())
-    }, [dispatch])
+    }, [dispatch, appData])
 
 
     return (

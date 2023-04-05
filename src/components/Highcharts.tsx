@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from 'highcharts';
 import {useAppSelector} from "../hook/hook";
@@ -8,6 +8,16 @@ import {Button, ButtonGroup} from "@material-ui/core";
 export function HighchartsGraph() {
 
     const appData = useAppSelector((state) => state.appData)
+
+
+    // const startWSub = appData.appData.volume_marginality_relation[2021].vds_wsub
+    //
+    // const startSub = appData.appData.volume_marginality_relation[2021].vds_sub
+
+    const [seriesWSub, setSeriesWSub] = useState([])
+
+    const [seriesSub, setSeriesSub] = useState([])
+
 
     const options = {
         yAxis: {
@@ -24,33 +34,53 @@ export function HighchartsGraph() {
             align: 'right',
             verticalAlign: 'top'
         },
-        // chart: {
-        //     type: 'spline'
-        // },  //* плавный изгиб
         title: {
             text: ''
         },
         series: [
             {
                 name: 'С учетом субсидии',
-                data: [1, 2, 1, 4, 3, 6]
+                data: seriesWSub
             },
             {
                 name: 'Без учета субсидии',
-                data: [2, 3, 5, 4, 1, 3]
+                data: seriesSub
             },
 
         ]
     };
+    const on2021ClickHandler = () => {
+        console.log(1)
+        setSeriesWSub(appData.appData.volume_marginality_relation[2021].vds_wsub)
+        setSeriesSub(appData.appData.volume_marginality_relation[2021].vds_sub)
+
+    };
+
+    const on2022ClickHandler = () => {
+        setSeriesWSub(appData.appData.volume_marginality_relation[2022].vds_wsub)
+        setSeriesSub(appData.appData.volume_marginality_relation[2022].vds_sub)
+
+    };
+
+    const on2023ClickHandler = () => {
+        setSeriesWSub(appData.appData.volume_marginality_relation[2023].vds_wsub)
+        setSeriesSub(appData.appData.volume_marginality_relation[2023].vds_sub)
+
+    };
+
+    const on2024ClickHandler = () => {
+        setSeriesWSub(appData.appData.volume_marginality_relation[2024].vds_wsub)
+        setSeriesSub(appData.appData.volume_marginality_relation[2024].vds_sub)
+
+    };
 
     return (
         <div>
-            {/* eslint-disable-next-line react/jsx-no-undef */}
             <ButtonGroup color="primary" aria-label="outlined primary button group">
-                <Button>2021</Button>
-                <Button>2022</Button>
-                <Button>2023</Button>
-                <Button>2024</Button>
+                <Button onClick={on2021ClickHandler}>2021</Button>
+                <Button onClick={on2022ClickHandler}>2022</Button>
+                <Button onClick={on2023ClickHandler}>2023</Button>
+                <Button onClick={on2024ClickHandler}>2024</Button>
             </ButtonGroup>
 
             <HighchartsReact highcharts={Highcharts} options={options}/>
