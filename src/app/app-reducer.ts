@@ -25,12 +25,19 @@ const initialState = {
 
 export type AppActionType =
     | GetDataAT
+    | SetLoadingAT
 
 type GetDataAT = ReturnType<typeof getDataAC>
+type SetLoadingAT = ReturnType<typeof setLoadingAC>
 
 export const appReducer = (state: any = initialState, action: AppActionType) => {
 
     switch (action.type) {
+        case 'SET-LOADING':
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
         case 'GET-DATA':
             return {
                 ...state,
@@ -42,6 +49,11 @@ export const appReducer = (state: any = initialState, action: AppActionType) => 
 }
 
 //* Action Creators
+
+export const setLoadingAC = (isLoading: boolean) => ({
+    type: 'SET-LOADING',
+    isLoading
+}) as const
 export const getDataAC = (appData: any) => ({
     type: 'GET-DATA',
     appData
@@ -50,7 +62,7 @@ export const getDataAC = (appData: any) => ({
 //* Thunk Creators
 export const getDataTC = (): AppThunkType => {
     return (dispatch) => {
-        // dispatch(setLoadingAC(true))
+        dispatch(setLoadingAC(true))
         appAPI.getData()
             .then((res) => {
                 dispatch(getDataAC(res.data))
@@ -58,8 +70,8 @@ export const getDataTC = (): AppThunkType => {
             .catch((e: AxiosError) => {
                 alert(e)
             })
-        // .finally(() => {
-        //     dispatch(setLoadingAC(false))
-        // })
+            .finally(() => {
+                dispatch(setLoadingAC(false))
+            })
     }
 }

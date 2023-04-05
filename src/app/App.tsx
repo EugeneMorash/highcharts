@@ -2,21 +2,24 @@ import React, {useEffect} from 'react';
 import {HighchartsGraph} from '../components/Highcharts';
 import {useAppDispatch, useAppSelector} from "../hook/hook";
 import {getDataTC} from "./app-reducer";
+import {Loader} from "../Loader/Loader";
 
 function App() {
 
     const dispatch = useAppDispatch()
-    const appData = useAppSelector((state) => state.appData)
+
+    const isLoading = useAppSelector((state) => state.appData.isLoading)
 
     useEffect(() => {
-        console.log(appData)
         dispatch(getDataTC())
-    }, [dispatch, appData])
-
+    }, [])
 
     return (
         <div>
-            <HighchartsGraph/>
+            {
+                isLoading ?
+                    <Loader/> : <HighchartsGraph/>
+            }
         </div>
     );
 }
