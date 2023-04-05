@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import HighchartsGraph from '../components/Highcharts';
 import {useAppDispatch, useAppSelector} from "../hook/hook";
 import {getDataTC} from "./app-reducer";
 
@@ -12,12 +13,10 @@ function App() {
         dispatch(getDataTC())
     }, [dispatch])
 
-    
-    console.log(appData.appData)
 
     return (
         <div>
-            111
+            <HighchartsGraph/>
         </div>
     );
 }
