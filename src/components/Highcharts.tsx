@@ -50,10 +50,9 @@ export function HighchartsGraph() {
         ]
     };
     const on2021ClickHandler = () => {
-        console.log(1)
         setSeriesWSub(appData.appData.volume_marginality_relation[2021].vds_wsub)
         setSeriesSub(appData.appData.volume_marginality_relation[2021].vds_sub)
-
+        console.log(seriesSub, seriesWSub)
     };
 
     const on2022ClickHandler = () => {

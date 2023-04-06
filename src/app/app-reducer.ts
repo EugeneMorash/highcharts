@@ -3,25 +3,7 @@ import {AxiosError} from "axios";
 import {appAPI} from "../api/app-api";
 
 
-const initialState = {
-    "volume_marginality_relation": {
-        "2021": {
-            "vds_wsub": [
-                {
-                    "name": "",
-                    "x": 0,
-                    "y": 0
-                },],
-            "vds_sub": [
-                {
-                    "name": "",
-                    "x": 0,
-                    "y": 0
-                },]
-        }
-
-    }
-}
+const initialState = {}
 
 export type AppActionType =
     | GetDataAT
@@ -30,8 +12,8 @@ export type AppActionType =
 type GetDataAT = ReturnType<typeof getDataAC>
 type SetLoadingAT = ReturnType<typeof setLoadingAC>
 
-export const appReducer = (state: any = initialState, action: AppActionType) => {
 
+export const appReducer = (state: any = initialState, action: AppActionType) => {
     switch (action.type) {
         case 'SET-LOADING':
             return {
