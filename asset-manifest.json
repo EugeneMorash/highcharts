@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.73e69a73.css",
-    "main.js": "/static/js/main.e3ce0ec3.js",
-    "static/js/787.fe306f96.chunk.js": "/static/js/787.fe306f96.chunk.js",
-    "static/media/loader.gif": "/static/media/loader.fffb52a5f55b4662ff09.gif",
-    "index.html": "/index.html",
-    "main.73e69a73.css.map": "/static/css/main.73e69a73.css.map",
-    "main.e3ce0ec3.js.map": "/static/js/main.e3ce0ec3.js.map",
-    "787.fe306f96.chunk.js.map": "/static/js/787.fe306f96.chunk.js.map"
+    "main.css": "/highcharts/static/css/main.73e69a73.css",
+    "main.js": "/highcharts/static/js/main.eaf3dc4f.js",
+    "static/js/787.fe306f96.chunk.js": "/highcharts/static/js/787.fe306f96.chunk.js",
+    "static/media/loader.gif": "/highcharts/static/media/loader.fffb52a5f55b4662ff09.gif",
+    "index.html": "/highcharts/index.html",
+    "main.73e69a73.css.map": "/highcharts/static/css/main.73e69a73.css.map",
+    "main.eaf3dc4f.js.map": "/highcharts/static/js/main.eaf3dc4f.js.map",
+    "787.fe306f96.chunk.js.map": "/highcharts/static/js/787.fe306f96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73e69a73.css",
-    "static/js/main.e3ce0ec3.js"
+    "static/js/main.eaf3dc4f.js"
   ]
 }
